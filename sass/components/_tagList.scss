@@ -1,0 +1,21 @@
+.selected-filters{
+    margin-bottom:15px;
+}
+
+.tag{
+    border-radius:5px;
+    color:white;
+    font-family:'Lato', sans-serif;
+    font-weight:700;
+    font-size : 14px;
+    
+    display:inline-flex;
+    align-items:center;
+    span{
+        padding:10px 13px 10px 20px;
+    }
+    img{
+        height:20px;
+        padding:10px;
+    }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Romain Charlot">
+    <meta name="description" content="Les petits plats, recettes de cuisine et édition de livres de cuisine">
+    <link rel="shortcut icon" href="./assets/img/logo.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/minified.css">
+
+    <!-- <script type="module" src="../js/index.js"></script> -->
+
+    <title>Les petits plats - accueil</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/img/logo.svg" alt="Logo représentant une toque de cuisinier, avec le nom du site Les petits plats">
+            <h1>Les petits plats</h1>
+        </div>
+        
+    </header>
+    <!-- Recherche -->
+    <section id="search-banner">
+      <!--zone de recherche par texte (cible titre, ingrédients et description)-->
+      <div class="text-search-container">
+        <label for="text-search"></label>
+        <input type="search" id="text-search" class="text-search-input" name="text-search" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+        <img src="./assets/img/search_icon.svg" alt="" class="search-icon">
+      </div>
+
+      <!--zone d'affichage des éléments sélectionnés (ingrédient, appareil et/ou ustensil)-->
+      <div class="selected-filters">
+          <div class="tag bg-ingredient">
+            <span>Ingrédient</span>
+            <img src="./assets/img/cross.svg" alt="">
+          </div>
+      </div>
+      
+      <!--zone de sélection par critère (ingrédient, appareil et/ou ustensil)-->
+      <div class="filters-container">
+        <!-- par ingrédient -->
+        <div class="drop-down bg-ingredient">
+          <div class="filter">
+            <input type="text" placeholder="Ingrédients">
+            <img src="./assets/img/arrow.svg" alt="">
+          </div>
+          <ul>
+            <li>Nougat</li>
+            <li>Lait de La Belle Tomate</li>
+            <li>Ananas</li>
+            <li>Fromage</li>
+            <li>Poussin</li>
+            <li>Fromage</li>
+            <li>Pomme</li>
+            <li>Fromage</li>
+          </ul>
+        </div>
+
+        <div class="drop-down bg-equipment">
+          <div class="filter">
+            <input type="text" placeholder="Equipment">
+            <img src="./assets/img/arrow.svg" alt="">
+          </div>
+          <ul>
+            <li>Four</li>
+            <li>Moule</li>
+          </ul>
+        </div>
+
+        <div class="drop-down bg-ustensil">
+          <div class="filter">
+            <input type="text" placeholder="Ustensiles">
+            <img src="./assets/img/arrow.svg" alt="">
+          </div>
+          <ul>
+            <li>Cuillère</li>
+            <li>Spatule</li>
+          </ul>
+        </div>
+      </div>
+    </section> 
+
+    <!--Recipes main section-->
+    <main id="recipes-list" class="container-fluid">
+        <div class="card">
+          <figure>
+            <div class="image"></div>
+            <figcaption>
+              <h2>Limonade de Coco</h2>
+              <ul>
+                <li>Lait de coco: 400ml</li>
+                <li>Jus de citron: 2</li>
+                <li>Créme de coco: 4 cuillères</li>
+                <li>Sucre: 20g</li>
+                <li>Glaçons: 2</li>
+              </ul>
+              <div>
+                <img src="./assets/img/clock.svg" alt="">
+                <span>10 min</span>
+              </div>
+              <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+            </figcaption>
+          </figure>
+        </div>
+    </main>
+    
+    
+</body>
+</html>

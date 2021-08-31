@@ -1,0 +1,36 @@
+{
+  "name": "p7_charlot_romain",
+  "version": "1.0.0",
+  "description": "P7_charlot_romain",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "watch:sass": "sass --watch ./sass/main.scss:./public/assets/css/minified.css --style compressed",
+    "compile:sass": "sass ./sass/main.scss:./public/assets/css/minified.css --style compressed",
+    "prefix:css": "postcss ./public/assets/css/minified.css --use autoprefixer -o ./public/assets/css/minified.css",
+    "build": "npm-run-all compile:sass prefix:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keitaro51/RomainCharlot-7-30082021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Keitaro51/RomainCharlot-7-30082021/issues"
+  },
+  "homepage": "https://github.com/Keitaro51/RomainCharlot-7-30082021#readme",
+  "browserslist": [
+    "last 4 versions"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.27.4",
+    "eslint": "^7.30.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.35.2"
+  }
+}

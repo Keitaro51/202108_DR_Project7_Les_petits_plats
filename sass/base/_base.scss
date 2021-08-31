@@ -1,0 +1,24 @@
+body{
+    margin: 0 100px;
+}
+img{
+    object-fit: cover
+}
+ul{
+    list-style: none;
+    padding:0;
+}
+
+#search-banner{
+    margin-bottom:25px;
+}
+
+.bg-ingredient{
+    background: $ingredients;
+}
+.bg-equipment{
+    background: $equipments;
+}
+.bg-ustensil{
+    background: $ustensils;
+}

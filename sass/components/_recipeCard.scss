@@ -1,0 +1,13 @@
+.card{
+    background:$cardBackground;
+    width:380px;
+    height:364px;
+    figure{
+        margin:0;
+    }
+    .image{
+        width:380px;
+        height:178px;
+        background: $pictureBackground;
+    }
+}

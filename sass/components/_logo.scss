@@ -1,0 +1,17 @@
+
+.logo{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:42px;
+    img{
+        width:50px;
+    }
+    h1{
+        color : $maincolor;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 700;
+        font-size:2.25rem;
+        margin-top:0;
+    }
+}

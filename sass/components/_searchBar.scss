@@ -1,0 +1,23 @@
+.text-search-input{
+    background: $searchBackground;
+    border:none;
+    width:100%;    
+    padding:22px;
+    &, &::placeholder{
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        border-radius: 5px;
+    }
+}
+
+.text-search-container{
+    background: $searchBackground;
+    height:69px; 
+    border-radius: 5px;
+    display:flex;
+    margin-bottom:25px;
+}
+.search-icon{
+    width: 32px;
+    padding:17px;
+}

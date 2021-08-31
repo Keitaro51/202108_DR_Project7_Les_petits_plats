@@ -1,0 +1,48 @@
+.filters-container{
+    display:flex;
+    font-family: 'Lato', sans-serif;
+    input{
+        border:none;
+        padding:24px;
+        background: rgba(0,0,0,0);
+        color:white;
+        font-weight:700;
+        &::placeholder{
+            color:white;
+            font-weight:700;
+        }
+    }
+    img{
+        padding-right:18px;
+    }
+    .drop-down{
+        margin-right:20px;
+        border-radius:5px;
+        max-height:397px;
+        // &:nth-of-type(1){
+        //     background: $ingredients;
+        // }
+        // &:nth-of-type(2){
+        //     background: $equipments;    
+        // }
+        // &:nth-of-type(3){
+        //     background: $ustensils;    
+        // }
+    }
+    ul{
+        //display:none;
+        display:flex;
+        flex-direction:column;
+        flex-wrap:wrap;
+        align-content:space-between;
+        margin:0;
+        padding-left : 19px;
+        max-height:326px;
+        color:white;
+        font-weight:400;
+        overflow: auto;
+        li{
+            padding:10px;
+        }
+    }
+}
