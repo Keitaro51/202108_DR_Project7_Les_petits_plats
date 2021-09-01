@@ -2,12 +2,48 @@
     background:$cardBackground;
     width:380px;
     height:364px;
+    margin-bottom:50px;
     figure{
         margin:0;
+    }
+    figcaption{
+        padding:20px;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        
     }
     .image{
         width:380px;
         height:178px;
         background: $pictureBackground;
+    }
+    h2{
+        @include font('Lato', 400, 18px);
+    }
+    ul{
+        @include font('Lato', 700, 12px);
+        align-self : flex-start;
+    }
+    .duration{
+        display:flex;
+        justify-content: flex-end;
+    }
+    span{
+        @include font('Lato', 700, 18px);
+        padding-left:7px;
+    }
+    p{
+        @include font('Roboto', 400, 12px);
+    }
+    p, ul{
+        overflow : hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+    }
+    p,ul,h2,.duration{
+        width: 50%;
     }
 }
