@@ -15,9 +15,13 @@
     height:69px; 
     border-radius: 5px;
     display:flex;
-    margin-bottom:25px;
 }
 .search-icon{
     width: 32px;
     padding:17px;
+}
+.search-error{
+    margin-bottom:25px;
+    display:inline-block;
+    color:red;
 }
