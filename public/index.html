@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/minified.css">
 
-    <script type="module" src="../js/index.js"></script>
+    <script type="module" src="../js/index.js" defer></script>
 
     <title>Les petits plats - accueil</title>
 </head>
@@ -36,54 +36,35 @@
       <span class="search-error" aria-hidden="true"></span>
 
       <!--zone d'affichage des éléments sélectionnés (ingrédient, appareil et/ou ustensil)-->
-      <div class="selected-filters">
-          <div class="tag bg-ingredient">
-            <span>Ingrédient</span>
-            <img src="./assets/img/cross.svg" alt="">
-          </div>
-      </div>
+      <div class="selected-filters"></div>
       
       <!--zone de sélection par critère (ingrédient, appareil et/ou ustensil)-->
       <div class="filters-container">
         <!-- par ingrédient -->
-        <div class="drop-down bg-ingredient">
-          <div class="filter">
+        <div class="drop-down bg-ingredients">          
+          <div class="filter dropbtn">
             <input type="text" placeholder="Ingrédients">
             <img src="./assets/img/arrow.svg" alt="">
           </div>
-          <ul>
-            <li>Nougat</li>
-            <li>Lait de La Belle Tomate</li>
-            <li>Ananas</li>
-            <li>Fromage</li>
-            <li>Poussin</li>
-            <li>Fromage</li>
-            <li>Pomme</li>
-            <li>Fromage</li>
-          </ul>
+          <ul id="ingredientsDropdown" class="dropdown-content bg-ingredients"></ul>
         </div>
 
-        <div class="drop-down bg-equipment">
-          <div class="filter">
-            <input type="text" placeholder="Equipment">
+        <div class="drop-down bg-ustensils">          
+          <div class="filter dropbtn">
+            <input type="text" placeholder="Equipements">
             <img src="./assets/img/arrow.svg" alt="">
           </div>
-          <ul>
-            <li>Four</li>
-            <li>Moule</li>
-          </ul>
+          <ul id="ustensilsDropdown" class="dropdown-content bg-ustensils"></ul>
         </div>
 
-        <div class="drop-down bg-ustensil">
-          <div class="filter">
-            <input type="text" placeholder="Ustensiles">
+        <div class="drop-down bg-appliance">          
+          <div class="filter dropbtn">
+            <input type="text" placeholder="Appareil">
             <img src="./assets/img/arrow.svg" alt="">
           </div>
-          <ul>
-            <li>Cuillère</li>
-            <li>Spatule</li>
-          </ul>
+          <ul id="applianceDropdown" class="dropdown-content bg-appliance"></ul>
         </div>
+        
       </div>
     </section> 
 

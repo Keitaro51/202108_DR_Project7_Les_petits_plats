@@ -18,31 +18,42 @@
     .drop-down{
         margin-right:20px;
         border-radius:5px;
-        max-height:397px;
-        // &:nth-of-type(1){
-        //     background: $ingredients;
-        // }
-        // &:nth-of-type(2){
-        //     background: $equipments;    
-        // }
-        // &:nth-of-type(3){
-        //     background: $ustensils;    
-        // }
+        height:100%;
+        position: relative;
+        .dropbtn{
+            display:flex;
+            align-items: center;
+            input{
+                flex-grow: 1;
+            }
+        }
     }
-    ul{
-        //display:none;
-        display:flex;
-        flex-direction:column;
-        flex-wrap:wrap;
-        align-content:space-between;
+    .expanded{
+        flex-grow: 1;
+    }
+    .dropdown-content{
+        display:none;
         margin:0;
         padding-left : 19px;
-        max-height:326px;
+        height :0;
         color:white;
         font-weight:400;
-        overflow: auto;
+        overflow-y: overlay;
+        position: absolute;
+        width : calc(100% - 20px);
         li{
             padding:10px;
+            width:210px;
+            &:hover{
+                color:lightgrey;
+                cursor: pointer;
+            }
         }
+    }
+    .show{
+        display:flex;
+        flex-wrap:wrap;
+        align-content:space-between;
+        height:375px;
     }
 }

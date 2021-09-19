@@ -21,12 +21,12 @@ main{
     margin-bottom:25px;
 }
 
-.bg-ingredient{
+.bg-ingredients{
     background: $ingredients;
 }
-.bg-equipment{
-    background: $equipments;
-}
-.bg-ustensil{
+.bg-ustensils{
     background: $ustensils;
+}
+.bg-appliance{
+    background: $appliance;
 }

@@ -1,5 +1,7 @@
 .selected-filters{
     margin-bottom:15px;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 .tag{
@@ -8,7 +10,7 @@
     font-family:'Lato', sans-serif;
     font-weight:700;
     font-size : 14px;
-    
+    margin:0 10px 10px 0;
     display:inline-flex;
     align-items:center;
     span{

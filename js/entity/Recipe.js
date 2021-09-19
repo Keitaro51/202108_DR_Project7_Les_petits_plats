@@ -38,7 +38,9 @@ export default class Recipe{
                         `<li>${ingredientString} ${quantity}${unit}</li>`
                     )
                 }
-            
         })
+    }
+    searchRecipe(searchString){
+
     }
 }
