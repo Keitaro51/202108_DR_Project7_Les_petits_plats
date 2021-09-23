@@ -1,46 +1,69 @@
-import {recipes} from '../../data/recipes.js'
+export default class Recipe {
+  constructor(
+    recipe
+  ) {
+    (this._id = recipe.id),
+    (this._name = recipe.name),
+    (this._servings = recipe.servings),
+    (this._ingredients = recipe.ingredients),
+    (this._time = recipe.time),
+    (this._description = recipe.description),
+    (this._appliance = recipe.appliance),
+    (this._ustensils = recipe.ustensils);
+  }
+  set id(id) {
+    this._id = id;
+  }
+  get id() {
+    return this._id;
+  }
 
-export default class Recipe{
+  set name(name) {
+    this._name = name;
+  }
+  get name() {
+    return this._name;
+  }
 
-    display(recipesId){
-        const recipesContainer = document.getElementById('recipes-list')
-        recipesContainer.innerHTML = ''
-        recipes.forEach(elt=>{
-                recipesContainer.insertAdjacentHTML(
-                'beforeend',
-                `<div class="card">
-                    <figure>
-                        <div class="image"></div>
-                        <figcaption>
-                            <h2>${elt.name}</h2>
-                        <div class="duration">
-                            <img src="./assets/img/clock.svg" alt="">
-                            <span>${elt.time} min</span>
-                        </div>
-                        <ul id="recipe${elt.id}Ingredients"></ul>
-                        <p>${elt.description}</p>
-                        </figcaption>
-                    </figure>
-                </div>`
-                )
-                
-                const ingredientList = document.getElementById(`recipe${elt.id}Ingredients`)
-                let quantity
-                let unit
-                let ingredientString
-                for(const ingredient of elt.ingredients){
-                    
-                    ingredient.quantity === undefined ? quantity = "" : quantity = ingredient.quantity
-                    ingredient.unit === undefined ? unit = "" : unit = ingredient.unit
-                    ingredient.quantity === undefined ? ingredientString = ingredient.ingredient :  ingredientString = ingredient.ingredient + ' : '
-                    ingredientList.insertAdjacentHTML(
-                        'beforeend',
-                        `<li>${ingredientString} ${quantity}${unit}</li>`
-                    )
-                }
-        })
-    }
-    searchRecipe(searchString){
+  set servings(servings) {
+    this._servings = servings;
+  }
+  get servings() {
+    return this._servings;
+  }
 
-    }
+  set ingredients(ingredients) {
+    this._ingredients = ingredients;
+  }
+  get ingredients() {
+    return this._ingredients;
+  }
+
+  set time(time) {
+    this._time = time;
+  }
+  get time() {
+    return this._time;
+  }
+
+  set description(description) {
+    this._description = description;
+  }
+  get description() {
+    return this._description;
+  }
+
+  set appliance(appliance) {
+    this._appliance = appliance;
+  }
+  get appliance() {
+    return this._appliance;
+  }
+
+  set ustensils(ustensils) {
+    this._ustensils = ustensils;
+  }
+  get ustensils() {
+    return this._ustensils;
+  }
 }
