@@ -30,17 +30,17 @@
     }
     .expanded{
         flex-grow: 1;
+        border-radius:5px 5px 0 0;
     }
     .dropdown-content{
         display:none;
         margin:0;
         padding-left : 19px;
-        height :0;
         color:white;
         font-weight:400;
-        overflow-y: overlay;
         position: absolute;
-        width : calc(100% - 20px);
+        width : calc(100% - 19px);
+        border-radius: 0 0 5px 5px;
         li{
             padding:10px;
             width:210px;
@@ -54,6 +54,5 @@
         display:flex;
         flex-wrap:wrap;
         align-content:space-between;
-        height:375px;
     }
 }

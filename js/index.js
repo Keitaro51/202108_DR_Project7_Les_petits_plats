@@ -3,13 +3,13 @@ import RecipeEntity from "./entity/Recipe.js";
 import RecipeView from "./view/Recipe.js";
 import Dropdown from "./component/Dropdown.js";
 
-const filterCategory = ['ingredients', 'ustensils', 'appliance'];
+//const filterCategory = ['ingredients', 'ustensils', 'appliance'];
 
-const dropDown = new Dropdown();
-dropDown.watch(filterCategory);
-dropDown.filterIngredients('ingredients');
-dropDown.filterUstensils('ustensils');
-dropDown.filterAppliance('appliance');
+// const dropDown = new Dropdown();
+// dropDown.watch(filterCategory);
+//dropDown.filterIngredients('ingredients');
+//dropDown.filterUstensils('ustensils');
+//dropDown.filterAppliance('appliance');
 //filterCategory.forEach(categoryName=>dropDown.filter(categoryName))
 
 let recipesArray = [];
@@ -23,25 +23,25 @@ recipe.display();
 
 //ready for POO
 //import Search from "./component/Search.js";
-// const search = new Search()
+//const search = new Search()
 // search.watch()
 const textSearch = document.getElementById('text-search');
+const error = document.getElementsByClassName('search-error')[0];
 textSearch.addEventListener('change',()=>{
-    const error = document.getElementsByClassName('search-error')[0];
-    if(textSearch.value.length <3){
+    if(textSearch.value.length < 3 && textSearch.value.length > 0){
         error.innerText = 'Merci de saisir au moins 3 caractères';
         error.setAttribute('aria-hidden', 'false');
     }else{
         error.innerText = '';
         error.setAttribute('aria-hidden', 'true');
-        const filteredRecipes = recipe.search(textSearch.value);
-        recipe.display(filteredRecipes);
+        const {recipesId, recipesList} = recipe.search(textSearch.value.toLowerCase());
+        
+        const tags = document.getElementsByClassName('tag');
+        if(tags.length !== 0){
+            //Array.from(tags).forEach(tag=>console.log(tag.firstElementChild.textContent));
+            recipe.display(recipesId,recipesList);
+        }else{
+            recipe.display(recipesId,recipesList);
+        }
     };
 });
-
-// Close all dropdown if the user clicks outside of it
-window.onclick = function(event) {
-    if (event.path.length <= 3 || (!event.path[0].classList.contains('dropbtn') && !event.path[1].classList.contains('dropbtn'))) {
-        dropDown.close();
-    };
-};
