@@ -102,7 +102,7 @@ export default class Dropdown{
     Array.from(list).forEach(elt=>
       elt.addEventListener('click', (e)=>{
         const tag = new Tag();
-        tag.Display(window.event, recipesList);
+        tag.display(window.event, recipesList);
       })
     );
   };

@@ -24,7 +24,7 @@ recipe.display();
 //ready for POO
 //import Search from "./component/Search.js";
 //const search = new Search()
-// search.watch()
+// search.watch(recipe)
 const textSearch = document.getElementById('text-search');
 const error = document.getElementsByClassName('search-error')[0];
 textSearch.addEventListener('change',()=>{
@@ -35,13 +35,14 @@ textSearch.addEventListener('change',()=>{
         error.innerText = '';
         error.setAttribute('aria-hidden', 'true');
         const {recipesId, recipesList} = recipe.search(textSearch.value.toLowerCase());
+        recipe.display(recipesId,recipesList);
         
-        const tags = document.getElementsByClassName('tag');
-        if(tags.length !== 0){
-            //Array.from(tags).forEach(tag=>console.log(tag.firstElementChild.textContent));
-            recipe.display(recipesId,recipesList);
-        }else{
-            recipe.display(recipesId,recipesList);
-        }
+        // const tags = document.getElementsByClassName('tag');
+        // if(tags.length !== 0){
+            
+        //     recipe.display(recipesId,recipesList);
+        // }else{
+        //     recipe.display(recipesId,recipesList);
+        // }
     };
 });

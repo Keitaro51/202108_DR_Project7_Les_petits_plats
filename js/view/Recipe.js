@@ -13,32 +13,32 @@ export default class Recipe{
     display(recipesId,recipesList){
         const recipesContainer = document.getElementById('recipes-list')
         recipesContainer.innerHTML = ''
-        recipes.forEach(elt=>{
+        recipes.forEach(recipe=>{
             //display all recipes or text search recipes only
-            if(recipesId && recipesId.includes(elt.id) === true || !recipesId){
+            if(recipesId && recipesId.includes(recipe.id) === true || !recipesId){
                 recipesContainer.insertAdjacentHTML(
                 'beforeend',
                 `<div class="card">
                     <figure>
                         <div class="image"></div>
                         <figcaption>
-                            <h2>${elt.name}</h2>
+                            <h2>${recipe.name}</h2>
                         <div class="duration">
                             <img src="./assets/img/clock.svg" alt="">
-                            <span>${elt.time} min</span>
+                            <span>${recipe.time} min</span>
                         </div>
-                        <ul id="recipe${elt.id}Ingredients"></ul>
-                        <p>${elt.description}</p>
+                        <ul id="recipe${recipe.id}Ingredients"></ul>
+                        <p>${recipe.description}</p>
                         </figcaption>
                     </figure>
                 </div>`
                 )
                 
-                const ingredientList = document.getElementById(`recipe${elt.id}Ingredients`)
+                const ingredientList = document.getElementById(`recipe${recipe.id}Ingredients`)
                 let quantity
                 let unit
                 let ingredientString
-                for(const ingredient of elt.ingredients){
+                for(const ingredient of recipe.ingredients){
                     ingredient.quantity === undefined ? quantity = "" : quantity = ingredient.quantity
                     ingredient.unit === undefined ? unit = "" : unit = ingredient.unit
                     ingredient.quantity === undefined ? ingredientString = ingredient.ingredient :  ingredientString = ingredient.ingredient + ' : '
@@ -82,8 +82,8 @@ export default class Recipe{
             //specific categrory (if user add a tag)  or no category (search in all recipes datas, loading/refresh page)
             switch(category){
                 case 'ingredients':
-                    recipe.ingredients.forEach(elt=>{
-                        subString = subString.concat(' ', elt.ingredient);
+                    recipe.ingredients.forEach(ingredient=>{
+                        subString = subString.concat(' ', ingredient.ingredient);
                     });
                     break;
                 case 'ustensils':
@@ -94,8 +94,8 @@ export default class Recipe{
                     break;
                 case 'all':
                     subString = recipe.name.concat(' ', recipe.description);
-                    recipe.ingredients.forEach(elt=>{
-                        subString = subString.concat(' ', elt.ingredient);
+                    recipe.ingredients.forEach(ingredient=>{
+                        subString = subString.concat(' ', ingredient.ingredient);
                     });
                     break;
             }
@@ -103,7 +103,6 @@ export default class Recipe{
             const search = new Search();
             let keywordsList = search.stringFormating(subString);
             let result = keywordsList.filter(keyword => keyword.includes(searchString));
-            console.log(result)
             if(result.length > 0){
                 recipesId.push(recipe.id);
                 recipesList.push(recipe);
