@@ -101,13 +101,40 @@ export default class Recipe{
             }
             //comparison between searchString (input or tag) and keyword list in datas
             const search = new Search();
-            let keywordsList = search.stringFormating(subString);
-            let result = keywordsList.filter(keyword => keyword.includes(searchString));
-            if(result.length > 0){
+            let keywordsList = search.stringFormating(subString).toString();
+            let result = this.moore(searchString,keywordsList)
+            if(result == true){
                 recipesId.push(recipe.id);
                 recipesList.push(recipe);
             };
         });    
         return {recipesId, recipesList};
     };
+    //Boyer Moore Horspool algo
+    badCharTable(word){
+        const table ={}
+        for(let i = 0; i<word.length -1; i++){
+            table[word[i]] = word.length -i -1
+        }
+        return table
+    }
+
+    moore(needle, haystack){
+        console.log(needle)
+        console.log(haystack)
+        const table = this.badCharTable(needle)
+        let skip = 0
+        while(haystack.length - skip >= needle.length){
+            let i = needle.length -1
+            while(haystack[skip + i] === needle[i]){
+                if(i === 0){
+                    return true
+                }
+                i--
+            }
+            skip += (table[haystack[skip + needle.length -1]] || needle.length)
+        }
+    return false
+    
+}
 };
