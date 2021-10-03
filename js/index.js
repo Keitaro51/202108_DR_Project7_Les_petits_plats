@@ -1,16 +1,6 @@
 import {recipes} from '../../data/recipes.js'
 import RecipeEntity from "./entity/Recipe.js";
 import RecipeView from "./view/Recipe.js";
-import Dropdown from "./component/Dropdown.js";
-
-//const filterCategory = ['ingredients', 'ustensils', 'appliance'];
-
-// const dropDown = new Dropdown();
-// dropDown.watch(filterCategory);
-//dropDown.filterIngredients('ingredients');
-//dropDown.filterUstensils('ustensils');
-//dropDown.filterAppliance('appliance');
-//filterCategory.forEach(categoryName=>dropDown.filter(categoryName))
 
 let recipesArray = [];
 recipes.forEach(recipe=>{
@@ -35,14 +25,11 @@ textSearch.addEventListener('change',()=>{
         error.innerText = '';
         error.setAttribute('aria-hidden', 'true');
         const {recipesId, recipesList} = recipe.search(textSearch.value.toLowerCase());
+        //if empty input, reload all recipes and delete remaining tags (consider as new search)
+        const tags = document.getElementsByClassName('tag');
+        if(tags.length !== 0){
+            tags[0].parentNode.innerHTML = ''
+        }
         recipe.display(recipesId,recipesList);
-        
-        // const tags = document.getElementsByClassName('tag');
-        // if(tags.length !== 0){
-            
-        //     recipe.display(recipesId,recipesList);
-        // }else{
-        //     recipe.display(recipesId,recipesList);
-        // }
     };
 });
