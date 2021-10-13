@@ -14,7 +14,7 @@ export default class Tag{
   display(listElt, recipesList){
     const tagContainer = document.getElementsByClassName('selected-filters')[0];
     const tagCategory = listElt.target.classList[0];
-    const tagContent = listElt.target.outerText
+    const tagContent = listElt.target.innerText
     tagContainer.insertAdjacentHTML(
       'beforeend',
       `<div class="tag ${tagCategory} bg-${tagCategory}">
@@ -38,7 +38,7 @@ export default class Tag{
     //target the most recently added tag (last of the HTML Collection)
     const tagDeleteBtn = tagDeleteList[tagDeleteList.length - 1];
     tagDeleteBtn.addEventListener('click', (e)=>{
-      const targetTag = e.path[1];
+      const targetTag = e.composedPath()[1];
       targetTag.parentNode.removeChild(targetTag);
       this.update(undefined,undefined,undefined, 'remove');
     });

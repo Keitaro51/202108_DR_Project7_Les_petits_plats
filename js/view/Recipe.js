@@ -59,7 +59,7 @@ export default class Recipe{
         dropDown.filterAppliance('appliance',recipesList);
         // Close all dropdown if the user clicks outside of it
         window.onclick = function(event) {
-            if (event.path.length <= 3 || (!event.path[0].classList.contains('dropbtn') && !event.path[1].classList.contains('dropbtn'))) {
+            if (event.composedPath().length <= 3 || (!event.composedPath()[0].classList.contains('dropbtn') && !event.composedPath()[1].classList.contains('dropbtn'))) {
                 dropDown.close();
             };
         };
