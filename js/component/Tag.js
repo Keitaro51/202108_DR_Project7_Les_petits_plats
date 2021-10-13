@@ -1,5 +1,6 @@
 import {recipes} from '../../data/recipes.js'
 import RecipeView from '../view/Recipe.js'
+import Search from '../component/Search.js'
 
 export default class Tag{
   /**
@@ -55,19 +56,21 @@ export default class Tag{
    */
   update(tagContent, category, remainingRecipes, state){
     if(state === 'add'){
+      const search = new Search();
+      const {recipesId, recipesList} = search.algo(tagContent, category, remainingRecipes);
       const recipeView = new RecipeView();
-      const {recipesId, recipesList} = recipeView.search(tagContent, category, remainingRecipes);
       recipeView.display(recipesId,recipesList);
     }else if (state ==='remove') {
       const input = document.getElementById('text-search');
-      const recipeView = new RecipeView();
+      const search = new Search();
       //proceed to a new search, starting with input content and then a new sub-search for each tag
-      let newList = recipeView.search(input.value);
+      let newList = search.algo(input.value);
+      const recipeView = new RecipeView();
       recipeView.display(newList.recipesId, newList.recipesList);
       const tags = document.getElementsByClassName('tag');
       //recursive loop where each tag use the remaining recipe list from previous tag
       Array.from(tags).forEach(tag=> {        
-        const tempList = recipeView.search(tag.firstElementChild.textContent, tag.classList[1], newList.recipesList);
+        const tempList = search.algo(tag.firstElementChild.textContent, tag.classList[1], newList.recipesList);
         recipeView.display(tempList.recipesId, tempList.recipesList);
         newList = tempList.recipesList;
       });

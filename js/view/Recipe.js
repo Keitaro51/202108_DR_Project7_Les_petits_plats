@@ -1,6 +1,5 @@
 import {recipes} from '../../data/recipes.js'
 import Dropdown from "../component/Dropdown.js";
-import Search from "../component/Search.js"
 
 export default class Recipe{
     /**
@@ -65,49 +64,4 @@ export default class Recipe{
             };
         };
     }
-
-    /**
-     * Find recipes by text search, into title, description or ingredients or using a specific tag
-     *
-     * @param   {string}  searchString  [text search input]
-     * @param   {string}  category  [category of the added tag - default : all (corresponding to "no tag", global search)]
-     * @param   {array}  remainingRecipes  [list of recipes to search in - default : no tag, all recipes]
-     * @return  {array|array}  recipesId - recipesList  [list of matching recipes ids - list of matching recipes (full datas)]
-     */
-     search(searchString, category = 'all', remainingRecipes = recipes){
-        let recipesId = [];
-        let recipesList= [];
-        remainingRecipes.forEach(recipe=>{
-            let subString ='';
-            //specific categrory (if user add a tag)  or no category (search in all recipes datas, loading/refresh page)
-            switch(category){
-                case 'ingredients':
-                    recipe.ingredients.forEach(ingredient=>{
-                        subString = subString.concat(' ', ingredient.ingredient);
-                    });
-                    break;
-                case 'ustensils':
-                    subString = subString.concat(' ', recipe.ustensils);
-                    break;
-                case 'appliance':
-                    subString = recipe.appliance;
-                    break;
-                case 'all':
-                    subString = recipe.name.concat(' ', recipe.description);
-                    recipe.ingredients.forEach(ingredient=>{
-                        subString = subString.concat(' ', ingredient.ingredient);
-                    });
-                    break;
-            }
-            //comparison between searchString (input or tag) and keyword list in datas
-            const search = new Search();
-            let keywordsList = search.stringFormating(subString);
-            let result = keywordsList.filter(keyword => keyword.includes(searchString));
-            if(result.length > 0){
-                recipesId.push(recipe.id);
-                recipesList.push(recipe);
-            };
-        });    
-        return {recipesId, recipesList};
-    };
 };
